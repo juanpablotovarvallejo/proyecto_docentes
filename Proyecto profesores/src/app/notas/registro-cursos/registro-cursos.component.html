@@ -1,0 +1,68 @@
+<app-barra-navegacion></app-barra-navegacion>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Contenido de la pantalla de notas -->
+                    <h1 class="card-title text-center mb-4">Cursos</h1>
+                    <div class="my-3">
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalNuevoCurso">Nuevo</button>
+                    </div>
+                    <app-tabla [dataSource]="cursos" [displayedColumns]="columnas"></app-tabla>
+                    <!-- Agrega otros elementos de la página de notas aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalNuevoCurso" tabindex="-1" aria-labelledby="modal-titulo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-titulo">Agregar Nuevo Usuario</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form (ngSubmit)="agregarCurso()" #usuarioForm="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Facultad</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required
+                                [(ngModel)]="nuevoCurso.facultad">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Carrera</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" required
+                                [(ngModel)]="nuevoCurso.carrera">
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Asignatura</label>
+                            <input type="text" class="form-control" id="cedula" name="cedula" required
+                                [(ngModel)]="nuevoCurso.asignatura">
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Periodo</label>
+                            <input type="text" class="form-control" id="contrasena" name="contrasena" required
+                                [(ngModel)]="nuevoCurso.periodo">
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Nivel</label>
+                            <input type="text" class="form-control" id="contrasena" name="contrasena" required
+                                [(ngModel)]="nuevoCurso.nivel">
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Paralelo</label>
+                            <input type="text" class="form-control" id="contrasena" name="contrasena" required
+                                [(ngModel)]="nuevoCurso.paralelo">
+                        </div>
+                        <!-- Agrega otros campos del formulario aquí -->
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

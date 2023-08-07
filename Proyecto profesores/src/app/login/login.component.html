@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Inicio de sesión</h3>
+                    <!-- Formulario de inicio de sesión -->
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="cedula" class="form-label">Cédula</label>
+                            <input type="text" class="form-control" id="cedula" name="cedula" [(ngModel)]="cedula"
+                                placeholder="Ingresa tu cedula">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contrasena" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena" [(ngModel)]="contrasena"
+                                placeholder="Ingresa tu contraseña">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

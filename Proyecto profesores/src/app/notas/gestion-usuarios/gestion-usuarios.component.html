@@ -1,0 +1,60 @@
+<app-barra-navegacion></app-barra-navegacion>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Contenido de la pantalla de notas -->
+                    <h1 class="card-title text-center mb-4">Usuarios</h1>
+                    <div class="my-3">
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalNuevoUsuario">Nuevo</button>
+                    </div>
+                    <div *ngIf="usuarios.length > 0">
+                        <app-tabla [dataSource]="usuarios" [displayedColumns]="columnas"></app-tabla>
+                    </div>
+                    <!-- Agrega otros elementos de la página de notas aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalNuevoUsuario" tabindex="-1" aria-labelledby="modal-titulo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-titulo">Agregar Nuevo Usuario</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form (ngSubmit)="agregarUsuario()" #usuarioForm="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required
+                                [(ngModel)]="nuevoUsuario.nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" required
+                                [(ngModel)]="nuevoUsuario.apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Cédula</label>
+                            <input type="text" class="form-control" id="cedula" name="cedula" required
+                                [(ngModel)]="nuevoUsuario.cedula">
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula">Contraseña</label>
+                            <input type="text" class="form-control" id="contrasena" name="contrasena" required
+                                [(ngModel)]="nuevoUsuario.contrasena">
+                        </div>
+                        <!-- Agrega otros campos del formulario aquí -->
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
